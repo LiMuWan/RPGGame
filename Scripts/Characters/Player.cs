@@ -4,17 +4,10 @@ using System;
 public partial class Player : CharacterBody3D
 {
     [ExportGroup("RequiredNode")]
-	[Export]
-	private AnimationPlayer animationPlayerNode;
-	[Export]
-	private Sprite3D spriteNode;
-	private Vector2 direction = new();
-
-    public override void _Ready()
-    {
-        base._Ready();
-		animationPlayerNode.Play(GameConstants.ANIM_IDLE);
-    }
+	[Export]public AnimationPlayer animationPlayerNode;
+	[Export]public Sprite3D spriteNode;
+    [Export]public StateMachine stateMachineNode;
+	public Vector2 direction = new();
 
     public override void _PhysicsProcess(double delta)
     {
@@ -29,14 +22,6 @@ public partial class Player : CharacterBody3D
     {
         base._Input(@event);
         direction = Input.GetVector(GameConstants.INPUT_MOVE_LEFT, GameConstants.INPUT_MOVE_RIGHT, GameConstants.INPUT_MOVE_FORWARD, GameConstants.INPUT_MOVE_BACKWARD);
-        if (direction == Vector2.Zero)
-        { 
-            animationPlayerNode.Play(GameConstants.ANIM_IDLE);
-        }
-        else
-        {
-            animationPlayerNode.Play(GameConstants.ANIM_MOVE);
-        }
     }
 
     private void Flip()
