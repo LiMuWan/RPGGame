@@ -8,6 +8,8 @@ public partial class PlayerIdleState : Node
 	public override void _Ready()
 	{
 		characterNode = GetOwner<Player>();
+		SetPhysicsProcess(false);
+		SetProcessInput(false);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,10 +28,12 @@ public partial class PlayerIdleState : Node
 		{
 			characterNode.animationPlayerNode.Play(GameConstants.ANIM_IDLE);
 			SetPhysicsProcess(true);
+			SetProcessInput(true);
 		}
 		else if(what == 5002)
 		{
            SetPhysicsProcess(false);
+		   SetProcessInput(false);
 		}
     }
 }
