@@ -1,17 +1,8 @@
 using Godot;
 using System;
 
-public partial class PlayerIdleState : Node
+public partial class PlayerIdleState : PlayerState
 {
-	private Player characterNode;
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-		characterNode = GetOwner<Player>();
-		SetPhysicsProcess(false);
-		SetProcessInput(false);
-	}
-
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
@@ -22,18 +13,9 @@ public partial class PlayerIdleState : Node
 		}
 	}
 
-    public override void _Notification(int what)
+    protected override void EnterState()
     {
-		if(what == 5001)
-		{
-			characterNode.animationPlayerNode.Play(GameConstants.ANIM_IDLE);
-			SetPhysicsProcess(true);
-			SetProcessInput(true);
-		}
-		else if(what == 5002)
-		{
-           SetPhysicsProcess(false);
-		   SetProcessInput(false);
-		}
+        base.EnterState();
+		characterNode.animationPlayerNode.Play(GameConstants.ANIM_IDLE);
     }
 }

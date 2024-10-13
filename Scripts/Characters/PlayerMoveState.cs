@@ -1,15 +1,8 @@
 using Godot;
 using System;
 
-public partial class PlayerMoveState : Node
+public partial class PlayerMoveState : PlayerState
 {
-	private Player characterNode;
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-		characterNode = GetOwner<Player>();
-	}
-
     public override void _PhysicsProcess(double delta)
     {
 		GD.Print("Player Move _PhysicsProcess ");
@@ -26,21 +19,6 @@ public partial class PlayerMoveState : Node
         characterNode.Flip();
     }
 
-    public override void _Notification(int what)
-    {
-		if(what == 5001)
-		{
-			characterNode.animationPlayerNode.Play(GameConstants.ANIM_MOVE);
-			SetPhysicsProcess(true);
-			SetProcessInput(true);
-		}
-		else if(what == 5002)
-		{
-			SetPhysicsProcess(false);
-			SetProcessInput(false);
-		}
-    }
-
 	public override void _Input(InputEvent @event)
     {
        if(Input.IsActionJustPressed(GameConstants.INPUT_DASH_BACKWARD))
@@ -48,4 +26,10 @@ public partial class PlayerMoveState : Node
 			characterNode.stateMachineNode.SwitchState<PlayerDashState>();
 	   }
     }
+
+    protected override void EnterState()
+    {
+        base.EnterState();
+		characterNode.animationPlayerNode.Play(GameConstants.ANIM_MOVE);
+	}
 }
