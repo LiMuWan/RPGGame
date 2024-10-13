@@ -1,7 +1,6 @@
 using Godot;
 using System;
-
-public partial class PlayerState : Node
+public abstract partial class PlayerState : Node
 {
 	protected Player characterNode;
 	// Called when the node enters the scene tree for the first time.
@@ -14,13 +13,13 @@ public partial class PlayerState : Node
 
 	public override void _Notification(int what)
 	{
-		if (what == 5001)
+		if (what == GameConstants.NOTIFACATION_ENTER_STATE)
 		{
 			EnterState();
 			SetPhysicsProcess(true);
 			SetProcessInput(true);
 		}
-		else if (what == 5002)
+		else if (what == GameConstants.NOTIFACATION_EXIT_STATE)
 		{
 			SetPhysicsProcess(false);
 			SetProcessInput(false);

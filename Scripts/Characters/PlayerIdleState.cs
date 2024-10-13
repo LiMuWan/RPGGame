@@ -9,13 +9,13 @@ public partial class PlayerIdleState : PlayerState
 		GD.Print("Player Idle _PhysicsProcess ");
 		if(characterNode.direction != Vector2.Zero)
 		{
-			characterNode.stateMachineNode.SwitchState<PlayerMoveState>();
+			characterNode.StateMachineNode.SwitchState<PlayerMoveState>();
 		}
 	}
 
     protected override void EnterState()
     {
         base.EnterState();
-		characterNode.animationPlayerNode.Play(GameConstants.ANIM_IDLE);
+		characterNode.AnimationPlayerNode.Play(GameConstants.ANIM_IDLE);
     }
 }

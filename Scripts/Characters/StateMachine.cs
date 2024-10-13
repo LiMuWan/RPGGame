@@ -10,7 +10,7 @@ public partial class StateMachine : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		currentState.Notification(5001);
+		currentState.Notification(GameConstants.NOTIFACATION_ENTER_STATE);
 	}	
 
     public void SwitchState<T>()
@@ -26,8 +26,8 @@ public partial class StateMachine : Node
 
 		if(newState == null){return;}
 
-		currentState.Notification(5002);
+		currentState.Notification(GameConstants.NOTIFACATION_EXIT_STATE);
 		currentState = newState;
-		currentState.Notification(5001);
+		currentState.Notification(GameConstants.NOTIFACATION_ENTER_STATE);
 	}
 }
