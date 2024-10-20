@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://bnfu4r2647hpx"]
+[gd_scene load_steps=112 format=3 uid="uid://bnfu4r2647hpx"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/Enemy.cs" id="1_b38wx"]
 [ext_resource type="Texture2D" uid="uid://dfcwswtndgttb" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_000.png" id="2_xg4uq"]
@@ -102,6 +102,7 @@
 [ext_resource type="PackedScene" uid="uid://cj1qpux6xdr32" path="res://Scenes/Characters/state_machine.tscn" id="100_tfuef"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyIdleState.cs" id="101_s62rh"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EenmyReturnState.cs" id="102_wu8rf"]
+[ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyPatrolState.cs" id="103_gqxof"]
 
 [sub_resource type="Animation" id="Animation_ajkvo"]
 resource_name = "Idle"
@@ -237,11 +238,12 @@ _data = {
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k3fdo"]
 height = 1.77522
 
-[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("AnimationPlayerNode", "SpriteNode", "StateMachineNode")]
+[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("AnimationPlayerNode", "SpriteNode", "StateMachineNode", "NavigationNode")]
 script = ExtResource("1_b38wx")
 AnimationPlayerNode = NodePath("AnimationPlayer")
 SpriteNode = NodePath("Sprite3D")
 StateMachineNode = NodePath("StateMachine")
+NavigationNode = NodePath("NavigationAgent3D")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 pixel_size = 0.0025
@@ -254,8 +256,8 @@ libraries = {
 autoplay = "MOve"
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("currentState", "states") instance=ExtResource("100_tfuef")]
-currentState = NodePath("ReturnState")
-states = [NodePath("IdleState"), NodePath("ReturnState")]
+currentState = NodePath("IdleState")
+states = [NodePath("IdleState"), NodePath("ReturnState"), NodePath("PatrolState")]
 
 [node name="IdleState" type="Node" parent="StateMachine"]
 script = ExtResource("101_s62rh")
@@ -263,6 +265,11 @@ script = ExtResource("101_s62rh")
 [node name="ReturnState" type="Node" parent="StateMachine"]
 script = ExtResource("102_wu8rf")
 
+[node name="PatrolState" type="Node" parent="StateMachine"]
+script = ExtResource("103_gqxof")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0851581, 0.0866191, 0)
 shape = SubResource("CapsuleShape3D_k3fdo")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
