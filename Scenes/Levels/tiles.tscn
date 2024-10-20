@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://comha36g563jm"]
+
+[ext_resource type="PackedScene" uid="uid://brxj8y5cobyd1" path="res://Assets/Models/Dungeon/gltf/wall.gltf.glb" id="1_pmipm"]
+[ext_resource type="PackedScene" uid="uid://doheo1oixrj3j" path="res://Assets/Models/Dungeon/gltf/wall_open_scaffold.gltf.glb" id="1_rniy0"]
+[ext_resource type="PackedScene" uid="uid://bk4rq85eno43d" path="res://Assets/Models/Dungeon/gltf/wall_corner.gltf.glb" id="2_05uxr"]
+[ext_resource type="PackedScene" uid="uid://n7nr6npa0k3k" path="res://Assets/Models/Dungeon/gltf/stairs_wood_decorated.gltf.glb" id="3_777rv"]
+[ext_resource type="PackedScene" uid="uid://c5j2v343265mo" path="res://Assets/Models/Dungeon/gltf/wall_Tsplit.gltf.glb" id="4_bhmat"]
+[ext_resource type="PackedScene" uid="uid://omwuw3utx7qk" path="res://Assets/Models/Dungeon/gltf/wall_doorway_scaffold.glb" id="5_leo74"]
+[ext_resource type="PackedScene" uid="uid://cg2a2fub86qej" path="res://Assets/Models/Dungeon/gltf/floor_tile_small.gltf.glb" id="7_7for8"]
+
+[node name="Tiles" type="Node3D"]
+
+[node name="wall_gltf" parent="." instance=ExtResource("1_pmipm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.21659, 0, -5.59115)
+
+[node name="wall_open_scaffold_gltf" parent="." instance=ExtResource("1_rniy0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.50759, 0, 0)
+
+[node name="wall_corner_gltf" parent="." instance=ExtResource("2_05uxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.78154, 0, -8.33077)
+
+[node name="stairs_wood_decorated_gltf" parent="." instance=ExtResource("3_777rv")]
+
+[node name="wall_Tsplit_gltf" parent="." instance=ExtResource("4_bhmat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.73362, 0, 0)
+
+[node name="wall_doorway_scaffold2" parent="." instance=ExtResource("5_leo74")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.878707, 0, -8.34985)
+
+[node name="floor_tile_small_gltf" parent="." instance=ExtResource("7_7for8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.34342, 0, -5.39572)
