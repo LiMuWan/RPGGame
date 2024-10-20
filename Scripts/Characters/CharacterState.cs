@@ -1,12 +1,13 @@
 using Godot;
 using System;
-public abstract partial class PlayerState : Node
+
+public partial class CharacterState : Node
 {
-	protected Player characterNode;
+	protected Character characterNode;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		characterNode = GetOwner<Player>();
+		characterNode = GetOwner<Character>();
 		SetPhysicsProcess(false);
 		SetProcessInput(false);
 	}

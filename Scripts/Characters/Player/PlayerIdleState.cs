@@ -7,7 +7,7 @@ public partial class PlayerIdleState : PlayerState
 	public override void _PhysicsProcess(double delta)
 	{
 		GD.Print("Player Idle _PhysicsProcess ");
-		if(characterNode.direction != Vector2.Zero)
+		if((characterNode as Player).direction != Vector2.Zero)
 		{
 			characterNode.StateMachineNode.SwitchState<PlayerMoveState>();
 		}

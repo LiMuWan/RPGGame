@@ -7,14 +7,14 @@ public partial class PlayerMoveState : PlayerState
     public override void _PhysicsProcess(double delta)
     {
 		GD.Print("Player Move _PhysicsProcess ");
-		if(characterNode.direction == Vector2.Zero)
+		if((characterNode as Player).direction == Vector2.Zero)
 		{
 			characterNode.StateMachineNode.SwitchState<PlayerIdleState>();
 		    return;
 		}
 
 		   // GD.Print("Player physic process !");
-		characterNode.Velocity = new Vector3(characterNode.direction.X,0,characterNode.direction.Y);
+		characterNode.Velocity = new Vector3((characterNode as Player).direction.X,0,(characterNode as Player).direction.Y);
 		characterNode.Velocity *= speed;
 		characterNode.MoveAndSlide();
         characterNode.Flip();

@@ -29,7 +29,7 @@ public partial class PlayerDashState : PlayerState
 	{
 		base.EnterState();
 		characterNode.AnimationPlayerNode.Play(GameConstants.ANIM_DASH);
-		characterNode.Velocity = new Vector3(characterNode.direction.X, 0, characterNode.direction.Y);
+		characterNode.Velocity = new Vector3((characterNode as Player).direction.X, 0, (characterNode as Player).direction.Y);
 		if (characterNode.Velocity == Vector3.Zero)
 		{
 			characterNode.Velocity = characterNode.SpriteNode.FlipH ? Vector3.Left : Vector3.Right;
