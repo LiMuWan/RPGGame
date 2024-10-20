@@ -9,11 +9,23 @@ public partial class EenmyReturnState : EnemyState
     public override void _Ready()
     {
         base._Ready();
-		destination = characterNode.PathNode.Curve.GetPointPosition(0);
+		Vector3 localPosition = characterNode.PathNode.Curve.GetPointPosition(0);
+		Vector3 globalPosition = characterNode.GlobalPosition;
+		destination = localPosition + globalPosition;
     }
     protected override void EnterState()
     {
         characterNode.AnimationPlayerNode.Play(GameConstants.ANIM_MOVE);
-		characterNode.GlobalPosition = destination + characterNode.Position;
+    }
+
+    public override void _PhysicsProcess(double delta)
+    {
+       if(characterNode.GlobalPosition == destination)
+	   {
+		 	GD.Print("Reach the destination");
+	   }
+
+	   characterNode.Velocity = characterNode.GlobalPosition.DirectionTo(destination);
+	   characterNode.MoveAndSlide();
     }
 }

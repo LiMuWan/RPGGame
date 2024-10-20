@@ -103,6 +103,50 @@
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyIdleState.cs" id="101_s62rh"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EenmyReturnState.cs" id="102_wu8rf"]
 
+[sub_resource type="Animation" id="Animation_ajkvo"]
+resource_name = "Idle"
+length = 0.56667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.433433, 0.466667, 0.5, 0.533333, 0.566667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_xg4uq"), ExtResource("3_r42pe"), ExtResource("4_7ei8l"), ExtResource("5_ldttf"), ExtResource("6_hcteu"), ExtResource("7_4638k"), ExtResource("8_sfse8"), ExtResource("9_mo3bk"), ExtResource("10_1vlny"), ExtResource("11_rmaej"), ExtResource("12_lay70"), ExtResource("13_n2qf8"), ExtResource("14_fxf2o"), ExtResource("2_xg4uq"), ExtResource("15_msgby"), ExtResource("16_8kfoe"), ExtResource("17_s68p1"), ExtResource("18_18ede"), ExtResource("19_fklfa")]
+}
+
+[sub_resource type="Animation" id="Animation_rb0oa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_xg4uq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:pixel_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0025]
+}
+
 [sub_resource type="Animation" id="Animation_tu8pt"]
 resource_name = "Attack"
 length = 0.400003
@@ -147,26 +191,10 @@ tracks/1/keys = {
 "values": [0.0025, 0.0075, 0.0075, 0.0075]
 }
 
-[sub_resource type="Animation" id="Animation_ajkvo"]
-resource_name = "Idle"
-length = 0.56667
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.433433, 0.466667, 0.5, 0.533333, 0.566667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("2_xg4uq"), ExtResource("3_r42pe"), ExtResource("4_7ei8l"), ExtResource("5_ldttf"), ExtResource("6_hcteu"), ExtResource("7_4638k"), ExtResource("8_sfse8"), ExtResource("9_mo3bk"), ExtResource("10_1vlny"), ExtResource("11_rmaej"), ExtResource("12_lay70"), ExtResource("13_n2qf8"), ExtResource("14_fxf2o"), ExtResource("2_xg4uq"), ExtResource("15_msgby"), ExtResource("16_8kfoe"), ExtResource("17_s68p1"), ExtResource("18_18ede"), ExtResource("19_fklfa")]
-}
-
 [sub_resource type="Animation" id="Animation_pgyw0"]
 resource_name = "Move"
 length = 0.76667
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -178,33 +206,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("64_grqm8"), ExtResource("65_5ownp"), ExtResource("66_0l5lp"), ExtResource("67_g0lhu"), ExtResource("68_dqywd"), ExtResource("69_fmffa"), ExtResource("70_dvkuk"), ExtResource("71_kpib5"), ExtResource("72_diuf7"), ExtResource("73_0e4lt"), ExtResource("74_otmrq"), ExtResource("75_hmqgp"), ExtResource("76_us3e7"), ExtResource("77_bybky"), ExtResource("78_7h10m"), ExtResource("79_4h1jm"), ExtResource("80_lv5g3"), ExtResource("81_74u7q"), ExtResource("82_xbsro"), ExtResource("83_2st2w"), ExtResource("84_qpw82"), ExtResource("85_ggjuh"), ExtResource("86_ffrhs"), ExtResource("87_0lphg"), ExtResource("20_h7x4l")]
-}
-
-[sub_resource type="Animation" id="Animation_rb0oa"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_xg4uq")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D:pixel_size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0025]
 }
 
 [sub_resource type="Animation" id="Animation_texq2"]

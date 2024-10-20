@@ -74,11 +74,11 @@ omni_shadow_mode = 0
 [node name="Enemies" type="Node3D" parent="."]
 
 [node name="Path3D" type="Path3D" parent="Enemies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45622, 1.56199, 6.11694)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.456, 0, 6.117)
 curve = SubResource("Curve3D_3ya6f")
 
 [node name="Enemy" parent="Enemies/Path3D" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_n6524")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.45622, 1.03521, -0.0145001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.45622, 2.24588, -0.0145025)
 PathNode = NodePath("..")
 
 [node name="Path3D2" type="Path3D" parent="Enemies"]
