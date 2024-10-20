@@ -13,7 +13,7 @@ public partial class EnemyState : CharacterState
 
 	protected void Move()
     {
-		//注意获取下一个寻路点
+		//手动更新获取下一个寻路点
 		characterNode.NavigationNode.GetNextPathPosition();
         characterNode.Velocity = characterNode.GlobalPosition.DirectionTo(destination);
         characterNode.MoveAndSlide();
