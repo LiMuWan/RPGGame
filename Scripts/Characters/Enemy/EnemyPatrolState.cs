@@ -14,9 +14,25 @@ public partial class EnemyPatrolState : EnemyState
 		characterNode.NavigationNode.TargetPosition = destination;
 		characterNode.NavigationNode.NavigationFinished += HandlerNavigationFinished;
 		idleTimeNode.Timeout += HandlerTimeout;
+		characterNode.ChaseAreaNode.BodyEntered += HandleChaseAreaEntered;
+		//characterNode.ChaseAreaNode.BodyExited += HandleChaseAreaExited;
     }
 
-	private void HandlerTimeout()
+    private void HandleChaseAreaExited(Area3D area)
+    {
+       
+    }
+
+
+    protected override void ExitState()
+    {
+		characterNode.NavigationNode.NavigationFinished -= HandlerNavigationFinished;
+		idleTimeNode.Timeout -= HandlerTimeout;
+		characterNode.ChaseAreaNode.BodyEntered -= HandleChaseAreaEntered;
+		//characterNode.ChaseAreaNode.BodyExited -= HandleChaseAreaExited;
+    }
+
+    private void HandlerTimeout()
 	{
 		characterNode.AnimationPlayerNode.Play(GameConstants.ANIM_MOVE);
 		pointIndex = Mathf.Wrap(pointIndex + 1, 0, characterNode.PathNode.Curve.PointCount);
@@ -41,5 +57,4 @@ public partial class EnemyPatrolState : EnemyState
 	   idleTimeNode.WaitTime = randomNumberGenerator.RandfRange(0,maxIdleTime);
 	   idleTimeNode.Start();
     }
-
 }

@@ -6,7 +6,7 @@ public partial class PlayerMoveState : PlayerState
 	[Export(PropertyHint.Range,"0,20,0.1")]private float speed = 5;
     public override void _PhysicsProcess(double delta)
     {
-		GD.Print("Player Move _PhysicsProcess ");
+		// GD.Print("Player Move _PhysicsProcess ");
 		if((characterNode as Player).direction == Vector2.Zero)
 		{
 			characterNode.StateMachineNode.SwitchState<PlayerIdleState>();
