@@ -125,6 +125,7 @@ height = 1.67564
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00242996, 0.00927699, -0.00444746)
 disable_mode = 2
 collision_layer = 2
+collision_mask = 3
 floor_max_angle = 1.55334
 floor_snap_length = 0.2
 script = ExtResource("1_2rp8w")

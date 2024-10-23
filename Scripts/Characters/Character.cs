@@ -13,7 +13,7 @@ public partial class Character : CharacterBody3D
 	[Export] public Path3D PathNode{get;set;}
     [Export] public NavigationAgent3D NavigationNode{get;set;}
     [Export] public Area3D ChaseAreaNode{get;set;}
-
+    [Export] public Area3D AttackAreaNode{get;set;}
 	public void Flip()
     {
         bool isNotMovingHorizontally = Velocity.X == 0;

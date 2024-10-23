@@ -18,9 +18,10 @@ public partial class EnemyPatrolState : EnemyState
 		//characterNode.ChaseAreaNode.BodyExited += HandleChaseAreaExited;
     }
 
+
     private void HandleChaseAreaExited(Area3D area)
     {
-       
+       characterNode.StateMachineNode.SwitchState<EenmyReturnState>();
     }
 
 
