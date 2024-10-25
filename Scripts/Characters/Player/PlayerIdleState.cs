@@ -18,4 +18,13 @@ public partial class PlayerIdleState : PlayerState
         base.EnterState();
 		characterNode.AnimationPlayerNode.Play(GameConstants.ANIM_IDLE);
     }
+
+	public override void _Input(InputEvent @event)
+	{
+		CheckForAttackInput();
+		if (Input.IsActionJustPressed(GameConstants.INPUT_DASH_BACKWARD))
+		{
+			characterNode.StateMachineNode.SwitchState<PlayerDashState>();
+		}
+	}
 }
