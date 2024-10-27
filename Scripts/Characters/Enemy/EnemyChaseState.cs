@@ -9,18 +9,18 @@ public partial class EnemyChaseState : EnemyState
 
     protected override void EnterState()
     {
-       characterNode.AnimationPlayerNode.Play(GameConstants.ANIM_MOVE);
-       chaseTimeNode.Timeout += HandleTimeout;
-	   GD.Print("chase state");
-       	characterNode.ChaseAreaNode.BodyEntered += HandleChaseAreaEntered;
-		characterNode.AttackAreaNode.BodyEntered += HandleAttackAreaEntered;
+        characterNode.AnimationPlayerNode.Play(GameConstants.ANIM_MOVE);
+        chaseTimeNode.Timeout += HandleTimeout;
+        GD.Print("chase state");
+        characterNode.ChaseAreaNode.BodyEntered += HandleChaseAreaEntered;
+        characterNode.AttackAreaNode.BodyEntered += HandleAttackAreaEntered;
     }
 
     protected override void ExitState()
     {
         chaseTimeNode.Timeout -= HandleTimeout;
         characterNode.ChaseAreaNode.BodyEntered -= HandleChaseAreaEntered;
-		characterNode.AttackAreaNode.BodyEntered -= HandleAttackAreaEntered;
+        characterNode.AttackAreaNode.BodyEntered -= HandleAttackAreaEntered;
     }
 
     private void HandleAttackAreaEntered(Node3D body)
@@ -31,7 +31,7 @@ public partial class EnemyChaseState : EnemyState
     private void HandleTimeout()
     {
         var targets = characterNode.ChaseAreaNode.GetOverlappingBodies();
-        if(targets != null && targets.Count > 0)
+        if (targets != null && targets.Count > 0)
         {
             target = targets.First() as CharacterBody3D;
             destination = target.GlobalPosition;
