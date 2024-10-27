@@ -18,7 +18,7 @@ public partial class StateMachine : Node
 	{
 		Node newState = states.Where((element)=>element is T).FirstOrDefault();
 		if(newState == null){return;}
-
+        if(currentState is T) {return;}//防止反复过度到当前状态
 		currentState.Notification(GameConstants.NOTIFACATION_EXIT_STATE);
 		currentState = newState;
 		currentState.Notification(GameConstants.NOTIFACATION_ENTER_STATE);
